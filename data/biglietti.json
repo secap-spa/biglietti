@@ -1,0 +1,25 @@
+{
+  "generato_da": "SECAP PRO",
+  "nota": "Generato da SECAP PRO: non modificare a mano. Le persone si cambiano in Amministrazione › Persone.",
+  "aggiornato_il": "2026-10-09T14:59:03+00:00",
+  "persone": [
+    {
+      "slug": "e.vanni",
+      "name": "Enrico Vanni",
+      "role": "Innovation Team Assistant",
+      "phone": "+393934665421",
+      "email": "enrico.vanni@secapspa.it",
+      "linkedin": "https://www.linkedin.com/in/enrico-vanni-585b93239/?trk=people-guest_people_search-card",
+      "site": "https://enrivan.framer.website/"
+    },
+    {
+      "slug": "s.foscarin",
+      "name": "Stefano Foscarin",
+      "role": "Project Manager",
+      "phone": "+393491368669",
+      "email": "stefano.foscarin@secapspa.it",
+      "linkedin": "https://www.linkedin.com/in/stefano-foscarin-543910b6/"
+    }
+  ],
+  "ritirati": []
+}
