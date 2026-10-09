@@ -11,12 +11,12 @@
     /* Pagina principale (VC16), senza elenco delle persone; la stessa, da ../, per i biglietti ritirati (VC6). */
     @font-face { font-family: "Manrope"; src: url("{{base}}fonts/Manrope-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
     @font-face { font-family: "Manrope"; src: url("{{base}}fonts/Manrope-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
-    :root { --bg: #ffffff; --bg-tint: #eef3ff; --ink: #0f0f0f; --soft: #464646; --cta: #1646bc; --cta-pressed: #0f3596; --cta-text: #ffffff; }
+    :root { --bg: #ffffff; --ink: #0f0f0f; --soft: #464646; --cta: #1646bc; --cta-pressed: #0f3596; --cta-text: #ffffff; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh; min-height: 100dvh;
       display: grid; place-items: center; padding: 32px 24px;
-      background: var(--bg) linear-gradient(180deg, var(--bg-tint) 0, var(--bg) 520px) no-repeat; color: var(--ink);
+      background: var(--bg); color: var(--ink);
       font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 16px; line-height: 24px; text-align: center;
     }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#eef3ff">
+  <meta name="theme-color" content="#ffffff">
   <title>{{name}} · {{org}}</title>
   <meta name="description" content="Biglietto da visita di {{name}}, {{role}} · {{org}}">
   <meta property="og:title" content="{{name}} · {{org}}">
@@ -18,14 +18,13 @@
     /* Variante A del confronto VC15 (9 ottobre 2026): il linguaggio di
        SECAP PRO. I valori vengono dai token del design system di SECAP PRO
        (design-system/tokens/foundations.tokens.json); il blu solo per l'azione.
-       Solo tema chiaro, con una lieve sfumatura blu in alto (Enrico, 09/10/2026). */
+       Solo tema chiaro, sfondo bianco (Enrico, 09/10/2026). */
     @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
     @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
     @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
 
     :root {
       --bg: #ffffff;              /* surface-canvas */
-      --bg-tint: #eef3ff;         /* brand-50: la sfumatura in alto */
       --ink: #0f0f0f;             /* text-primary */
       --soft: #464646;            /* text-secondary */
       --meta: #5f6368;            /* text-meta */
@@ -46,7 +45,7 @@
       margin: 0;
       min-height: 100vh;
       min-height: 100dvh;
-      background: var(--bg) linear-gradient(180deg, var(--bg-tint) 0, var(--bg) 520px) no-repeat;
+      background: var(--bg);
       color: var(--ink);
       font-family: var(--font);
       font-size: 16px;
