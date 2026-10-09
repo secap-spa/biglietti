@@ -1,7 +1,7 @@
 {
   "generato_da": "SECAP PRO",
   "nota": "Generato da SECAP PRO: non modificare a mano. Le persone si cambiano in Amministrazione › Persone.",
-  "aggiornato_il": "2026-10-09T14:59:03+00:00",
+  "aggiornato_il": "2026-10-09T15:04:37+00:00",
   "persone": [
     {
       "slug": "e.vanni",
@@ -11,6 +11,14 @@
       "email": "enrico.vanni@secapspa.it",
       "linkedin": "https://www.linkedin.com/in/enrico-vanni-585b93239/?trk=people-guest_people_search-card",
       "site": "https://enrivan.framer.website/"
+    },
+    {
+      "slug": "m.vanni",
+      "name": "Maurizio Vanni",
+      "role": "Dirigente Area Tecnica",
+      "phone": "+393355761257",
+      "email": "maurizio.vanni@secapspa.it",
+      "linkedin": "https://www.linkedin.com/in/maurizio-vanni-6bb56837/"
     },
     {
       "slug": "s.foscarin",
