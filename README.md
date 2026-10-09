@@ -84,8 +84,9 @@ App consigliata: NFC Tools (Android) → Write → Add URL/URI record → incoll
 ## Aspetto
 
 La pagina usa il linguaggio di SECAP PRO (variante A del confronto VC15, 9 ottobre 2026):
-fondo chiaro, Manrope, logo SECAP originale, il blu solo su «Salva contatto», tema
-scuro automatico. I colori nel `<style>` di `templates/index.html` vengono dai token
+fondo chiaro con una lieve sfumatura blu in alto (`brand-50`), Manrope, logo SECAP
+originale, il blu solo su «Salva contatto». Solo tema chiaro, anche con il telefono
+in modalità scura. I colori nel `<style>` di `templates/index.html` vengono dai token
 del design system di SECAP PRO e si cambiano lì per primi.
 
 ## Collegamento con SECAP PRO

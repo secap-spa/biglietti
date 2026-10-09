@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121418" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#eef3ff">
   <title>{{name}} · {{org}}</title>
   <meta name="description" content="Biglietto da visita di {{name}}, {{role}} · {{org}}">
   <meta property="og:title" content="{{name}} · {{org}}">
@@ -18,13 +17,15 @@
   <style>
     /* Variante A del confronto VC15 (9 ottobre 2026): il linguaggio di
        SECAP PRO. I valori vengono dai token del design system di SECAP PRO
-       (design-system/tokens/foundations.tokens.json); il blu solo per l'azione. */
+       (design-system/tokens/foundations.tokens.json); il blu solo per l'azione.
+       Solo tema chiaro, con una lieve sfumatura blu in alto (Enrico, 09/10/2026). */
     @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
     @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
     @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
 
     :root {
       --bg: #ffffff;              /* surface-canvas */
+      --bg-tint: #eef3ff;         /* brand-50: la sfumatura in alto */
       --ink: #0f0f0f;             /* text-primary */
       --soft: #464646;            /* text-secondary */
       --meta: #5f6368;            /* text-meta */
@@ -38,24 +39,6 @@
       --focus: #1646bc;
       --font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121418;
-        --ink: #f4f4f4;
-        --soft: #c9ccd2;
-        --meta: #9aa0a8;
-        --line: rgba(255, 255, 255, .10);
-        --ring: rgba(255, 255, 255, .16);
-        --mono-bg: rgba(255, 255, 255, .08);
-        --row-hover: rgba(130, 157, 222, .14);
-        --cta: #5a7ad4;           /* brand-400 */
-        --cta-pressed: #829dde;   /* brand-300 */
-        --cta-text: #0f0f0f;
-        --focus: #829dde;
-      }
-      img.logo--light { display: none; }
-      img.logo--dark { display: block; }
-    }
 
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
@@ -63,7 +46,7 @@
       margin: 0;
       min-height: 100vh;
       min-height: 100dvh;
-      background: var(--bg);
+      background: var(--bg) linear-gradient(180deg, var(--bg-tint) 0, var(--bg) 520px) no-repeat;
       color: var(--ink);
       font-family: var(--font);
       font-size: 16px;
@@ -87,7 +70,6 @@
     .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .top a { display: inline-flex; border-radius: 6px; }
     .logo { height: 24px; width: auto; display: block; }
-    .logo--dark { display: none; }
     .top span { color: var(--meta); font-size: 13px; line-height: 18px; font-weight: 500; }
 
     .identity { display: grid; justify-items: center; text-align: center; gap: 8px; }
@@ -148,8 +130,7 @@
   <main>
     <header class="top">
       <a href="{{brandSite}}" target="_blank" rel="noopener" aria-label="{{brandName}}, sito">
-        <img class="logo logo--light" src="../brand/secap-logo.svg" alt="SECAP" width="97" height="24">
-        <img class="logo logo--dark" src="../brand/secap-logo-white.svg" alt="SECAP" width="97" height="24">
+        <img class="logo" src="../brand/secap-logo.svg" alt="SECAP" width="97" height="24">
       </a>
       <span>Biglietto da visita</span>
     </header>
