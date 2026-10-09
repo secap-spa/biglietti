@@ -1,7 +1,6 @@
 {
   "brandName": "Secap S.p.A.",
   "brandSite": "https://www.secapspa.it",
-  "brandAccent": "#0D4F9E",
-  "brandAccentDark": "#OFOFOF",
-  "defaultOrg": "Secap S.p.A."
+  "defaultOrg": "Secap S.p.A.",
+  "motto": "Il buon costruire."
 }

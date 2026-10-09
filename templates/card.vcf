@@ -8,5 +8,5 @@ TEL;TYPE=CELL,VOICE:{{phone}}
 EMAIL;TYPE=INTERNET,WORK:{{email}}
 URL:{{site}}
 {{extraFields}}
-NOTE:Salvato via NFC card · {{brandName}}
+NOTE:Dal biglietto da visita digitale · {{brandName}}
 END:VCARD

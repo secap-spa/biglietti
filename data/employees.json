@@ -7,23 +7,5 @@
     "email": "enrico.vanni@secapspa.it",
     "site": "https://enrivan.framer.website/",
     "linkedin": "https://www.linkedin.com/in/enrico-vanni-585b93239/?trk=people-guest_people_search-card"
-  },
-  {
-    "slug": "g.bianchi",
-    "name": "Giulia Bianchi",
-    "role": "Head of Design",
-    "phone": "+393339876543",
-    "email": "g.bianchi@azienda.it",
-    "site": "https://www.azienda.it",
-    "linkedin": "https://linkedin.com/in/giuliabianchi",
-    "monogram": "GB"
-  },
-  {
-    "slug": "l.verdi",
-    "name": "Luca Verdi",
-    "role": "Sales Manager",
-    "phone": "+393335551234",
-    "email": "l.verdi@azienda.it",
-    "site": "https://www.azienda.it"
   }
 ]

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light dark">
+  <title>{{brandName}} · Biglietti da visita</title>
+  <link rel="icon" href="{{base}}brand/secap-mark.svg" type="image/svg+xml">
+  <style>
+    /* Pagina principale (VC16), senza elenco delle persone; la stessa, da ../, per i biglietti ritirati (VC6). */
+    @font-face { font-family: "Manrope"; src: url("{{base}}fonts/Manrope-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Manrope"; src: url("{{base}}fonts/Manrope-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+    :root { --bg: #ffffff; --ink: #0f0f0f; --soft: #464646; --cta: #1646bc; --cta-pressed: #0f3596; --cta-text: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121418; --ink: #f4f4f4; --soft: #c9ccd2; --cta: #5a7ad4; --cta-pressed: #829dde; --cta-text: #0f0f0f; }
+      img.logo--light { display: none; }
+      img.logo--dark { display: block; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; min-height: 100dvh;
+      display: grid; place-items: center; padding: 32px 24px;
+      background: var(--bg); color: var(--ink);
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 16px; line-height: 24px; text-align: center;
+    }
+    main { display: grid; justify-items: center; gap: 24px; max-width: 360px; }
+    .logo { height: 32px; width: auto; display: block; }
+    .logo--dark { display: none; }
+    h1 { margin: 0; font-size: 32px; line-height: 38px; font-weight: 600; letter-spacing: -.03em; }
+    p { margin: 0; color: var(--soft); }
+    a.site {
+      display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px;
+      border-radius: 999px; background: var(--cta); color: var(--cta-text);
+      font-weight: 600; text-decoration: none;
+    }
+    a.site:hover { background: var(--cta-pressed); }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo logo--light" src="{{base}}brand/secap-logo.svg" alt="SECAP" width="130" height="32">
+    <img class="logo logo--dark" src="{{base}}brand/secap-logo-white.svg" alt="SECAP" width="130" height="32">
+    <h1>{{motto}}</h1>
+    <p>{{message}}</p>
+    <a class="site" href="{{brandSite}}">Vai a secapspa.it</a>
+  </main>
+</body>
+</html>

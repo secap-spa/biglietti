@@ -3,302 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0D4F9E">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="robots" content="noindex,nofollow">
-
-  <title>{{name}} — {{role}} · {{org}}</title>
-  <meta name="description" content="Digital business card di {{name}}, {{role}} presso {{org}}.">
-
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121418" media="(prefers-color-scheme: dark)">
+  <title>{{name}} · {{org}}</title>
+  <meta name="description" content="Biglietto da visita di {{name}}, {{role}} · {{org}}">
   <meta property="og:title" content="{{name}} · {{org}}">
   <meta property="og:description" content="{{role}}">
-  <meta property="og:type" content="profile">
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230D4F9E'/%3E%3Cpolygon fill='white' points='20,72 20,28 65,28 50,43 35,43 35,57 50,57'/%3E%3C/svg%3E">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="../brand/secap-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="../fonts/Manrope-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Manrope-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
 
   <style>
-    /* ============================================================
-       SECAP S.p.A. — Versione Blu
-       Brand Guidelines v1.0, Apr 2024
-       ============================================================ */
+    /* Variante A del confronto VC15 (9 ottobre 2026): il linguaggio di
+       SECAP PRO. I valori vengono dai token del design system di SECAP PRO
+       (design-system/tokens/foundations.tokens.json); il blu solo per l'azione. */
+    @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+    @font-face { font-family: "Manrope"; src: url("../fonts/Manrope-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+
     :root {
-      --secap-blue:  #0D4F9E;
-      --bg:     var(--secap-blue);
-      --ink:    #FFFFFF;
-      --muted:  rgba(255, 255, 255, 0.65);
-      --line:   rgba(255, 255, 255, 0.18);
-      --font:   'Manrope', system-ui, -apple-system, sans-serif;
+      --bg: #ffffff;              /* surface-canvas */
+      --ink: #0f0f0f;             /* text-primary */
+      --soft: #464646;            /* text-secondary */
+      --meta: #5f6368;            /* text-meta */
+      --line: #ededed;            /* border-subtle */
+      --ring: #d9d9d9;            /* border-default */
+      --mono-bg: #f5f5f5;         /* surface-subtle */
+      --row-hover: #eef3ff;       /* action-soft */
+      --cta: #1646bc;             /* action-active, brand-600 */
+      --cta-pressed: #0f3596;     /* action-pressed, brand-700 */
+      --cta-text: #ffffff;        /* text-on-action */
+      --focus: #1646bc;
+      --font: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121418;
+        --ink: #f4f4f4;
+        --soft: #c9ccd2;
+        --meta: #9aa0a8;
+        --line: rgba(255, 255, 255, .10);
+        --ring: rgba(255, 255, 255, .16);
+        --mono-bg: rgba(255, 255, 255, .08);
+        --row-hover: rgba(130, 157, 222, .14);
+        --cta: #5a7ad4;           /* brand-400 */
+        --cta-pressed: #829dde;   /* brand-300 */
+        --cta-text: #0f0f0f;
+        --focus: #829dde;
+      }
+      img.logo--light { display: none; }
+      img.logo--dark { display: block; }
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
-
     body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font);
-      font-weight: 400;
       font-size: 16px;
-      line-height: 1.5;
-      min-height: 100vh;
-      min-height: 100dvh;
+      line-height: 24px;
+      -webkit-font-smoothing: antialiased;
       display: flex;
       justify-content: center;
-      padding: 24px 20px 40px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     main {
       width: 100%;
       max-width: 440px;
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       gap: 32px;
+      padding: 32px 24px 24px;
     }
 
-    /* Brand bar — logo Secap bianco, top-left */
-    .brand-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .brand-logo {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      height: 22px;
-    }
-    .brand-logo svg {
-      height: 100%;
-      width: auto;
-      display: block;
-    }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .top a { display: inline-flex; border-radius: 6px; }
+    .logo { height: 24px; width: auto; display: block; }
+    .logo--dark { display: none; }
+    .top span { color: var(--meta); font-size: 13px; line-height: 18px; font-weight: 500; }
 
-    .eyebrow {
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .identity { display: grid; justify-items: center; text-align: center; gap: 8px; }
+    .photo {
+      width: 128px; height: 128px; border-radius: 50%;
+      object-fit: cover; margin-bottom: 12px;
+      box-shadow: 0 0 0 1px var(--ring);
+      background: var(--mono-bg);
     }
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      background: #FFFFFF;
-      border-radius: 50%;
-      animation: pulse 2s ease-out infinite;
+    .photo--mono {
+      display: grid; place-items: center;
+      color: var(--ink); font-size: 40px; font-weight: 600; letter-spacing: -.02em;
     }
-    @keyframes pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-      70%  { box-shadow: 0 0 0 10px transparent; }
-      100% { box-shadow: 0 0 0 0 transparent; }
-    }
+    h1 { margin: 0; font-size: 32px; line-height: 38px; font-weight: 600; letter-spacing: -.03em; }
+    .role { margin: 0; color: var(--soft); }
 
-    /* Medaglione NFC */
-    .medallion {
-      width: 100%;
-      max-width: 240px;
-      aspect-ratio: 1;
-      margin: 8px auto 0;
+    .save {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 56px; border-radius: 999px;
+      background: var(--cta); color: var(--cta-text);
+      font-size: 17px; font-weight: 600; text-decoration: none;
+      transition: background-color .12s ease;
     }
-    .medallion svg { width: 100%; height: 100%; display: block; }
-    .med-ring { fill: none; stroke: #FFFFFF; stroke-opacity: 0.18; stroke-width: 1; }
-    .med-ping { fill: none; stroke: #FFFFFF; stroke-width: 1.5; }
-    .med-core { fill: #FFFFFF; }
-    .med-mono {
-      fill: var(--secap-blue);
-      font-family: var(--font);
-      font-weight: 600;
-      font-size: 28px;
-      letter-spacing: -0.02em;
-    }
+    .save:hover, .save:active { background: var(--cta-pressed); }
+    .save svg { width: 20px; height: 20px; }
 
-    /* Identità */
-    .identity { text-align: center; }
-    .name {
-      font-family: var(--font);
-      font-weight: 600;
-      font-size: clamp(30px, 7.5vw, 38px);
-      letter-spacing: -0.02em;
-      line-height: 1.08;
-      margin-bottom: 8px;
-      color: var(--ink);
-    }
-    .role {
-      font-size: 15px;
-      color: var(--muted);
-      font-weight: 400;
-    }
-    .role b {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    /* CTA */
-    .save-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 18px 24px;
-      background: #FFFFFF;
-      color: var(--secap-blue);
-      border: none;
-      border-radius: 100px;
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 15px;
-      letter-spacing: -0.005em;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .save-btn:hover { opacity: 0.92; }
-    .save-btn:active { transform: scale(0.985); }
-    .save-btn svg { width: 18px; height: 18px; }
-
-    /* Lista contatti */
-    .details { display: flex; flex-direction: column; }
+    .rows { display: grid; }
     .row {
-      display: grid;
-      grid-template-columns: 92px 1fr auto;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 4px;
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+      padding: 16px 12px; margin: 0 -12px;
       border-top: 1px solid var(--line);
-      text-decoration: none;
-      color: var(--ink);
-      transition: padding-left 0.2s ease;
+      color: var(--ink); text-decoration: none;
+      transition: background-color .12s ease;
     }
     .row:last-child { border-bottom: 1px solid var(--line); }
-    .row .key {
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-    .row .val { font-size: 15px; word-break: break-word; font-weight: 400; }
-    .row .arrow {
-      width: 16px;
-      height: 16px;
-      opacity: 0;
-      color: #FFFFFF;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .row:hover { padding-left: 8px; }
-    .row:hover .arrow { opacity: 1; transform: translateX(2px); }
+    .row:hover, .row:active { background: var(--row-hover); border-radius: 16px; }
+    .row small { display: block; color: var(--meta); font-size: 13px; line-height: 18px; font-weight: 500; }
+    .row .val { display: block; word-break: break-word; }
+    .row svg { width: 18px; height: 18px; color: var(--meta); }
 
-    /* Footer */
     footer {
-      margin-top: 8px;
-      text-align: center;
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      text-transform: uppercase;
+      margin-top: auto; padding-top: 8px;
+      display: grid; justify-items: center; gap: 4px; text-align: center;
+      color: var(--meta); font-size: 13px; line-height: 18px;
     }
+    footer b { color: var(--ink); font-size: 15px; font-weight: 500; }
+
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+    .save:focus-visible, .row:focus-visible { border-radius: 16px; }
+    .save:focus-visible { border-radius: 999px; }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-      }
-      .med-ping { display: none; }
-    }
-    :focus-visible {
-      outline: 2px solid #FFFFFF;
-      outline-offset: 3px;
-      border-radius: 4px;
+      *, *::before, *::after { transition-duration: .001ms !important; }
     }
   </style>
 </head>
 <body>
   <main>
-
-    <!-- Brand bar -->
-    <div class="brand-bar">
-      <a class="brand-logo" href="{{brandSite}}" target="_blank" rel="noopener" aria-label="Secap S.p.A.">
-        <svg viewBox="0 0 1000 247" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g>
-            <g>
-              <path fill="#F4F4F4" d="M316.8,120.3h-31.2c-6.4,0-11.6-5.2-11.6-11.6v-3.3c0-6.4,5.2-11.6,11.6-11.6h70.6V66h-70.6c-21.8,0-39.4,17.7-39.4,39.4v3.3c0,21.8,17.7,39.4,39.4,39.4h31.2c6.4,0,11.6,5.2,11.6,11.6s-5.2,11.6-11.6,11.6h-68.9v27.8h68.9c21.8,0,39.4-17.7,39.4-39.4S338.5,120.3,316.8,120.3L316.8,120.3z"/>
-              <path fill="#F4F4F4" d="M371,107.8v49.6c0,23.1,18.8,41.8,41.8,41.8h73.7v-27.8h-73.7c-7.7,0-14-6.3-14-14v-10.9h85.6v-27.8h-85.6v-10.9c0-7.7,6.3-14,14-14h73.7V66h-73.7C389.8,66,371,84.8,371,107.8L371,107.8z"/>
-              <path fill="#F4F4F4" d="M499.4,107.8v49.6c0,23.1,18.8,41.8,41.8,41.8h73.7v-27.8h-73.7c-7.7,0-14-6.3-14-14v-49.6c0-7.7,6.3-14,14-14h73.7V66h-73.7C518.2,66,499.4,84.7,499.4,107.8L499.4,107.8z"/>
-              <path fill="#F4F4F4" d="M875.7,66h-78.2v133.2h27.8v-43.3h50.4c24.8,0,45-20.2,45-45S900.5,66,875.7,66L875.7,66z M875.7,128.1h-50.4V93.8h50.4c9.5,0,17.1,7.7,17.1,17.1S885.2,128.1,875.7,128.1L875.7,128.1z"/>
-              <path fill="#F4F4F4" d="M698.1,68.3l-70.9,131h31.6l12.3-22.8h74.1l12.6,22.8h31.8l-72.6-131C712.9,60.7,702.2,60.8,698.1,68.3L698.1,68.3z M686.2,148.6l21.6-39.8l22.1,39.8H686.2z"/>
-            </g>
-            <g>
-              <polygon fill="#F4F4F4" points="195.6,170.2 142.5,170.2 131.2,170.2 108.1,170.2 108.1,147.2 108.1,135.8 108.1,82.7 161.2,82.7 190,53.9 79.3,53.9 79.3,199 224.4,199 224.4,88.3 195.6,117.1"/>
-              <polygon fill="#F4F4F4" points="204.1,53.9 175.3,82.7 151.9,106.1 151.9,146.8 195.6,103.1 224.4,74.3 250.9,47.8 210.2,47.8"/>
-            </g>
-          </g>
-        </svg>
+    <header class="top">
+      <a href="{{brandSite}}" target="_blank" rel="noopener" aria-label="{{brandName}}, sito">
+        <img class="logo logo--light" src="../brand/secap-logo.svg" alt="SECAP" width="97" height="24">
+        <img class="logo logo--dark" src="../brand/secap-logo-white.svg" alt="SECAP" width="97" height="24">
       </a>
-      <div class="eyebrow">NFC · tap detected</div>
-    </div>
+      <span>Biglietto da visita</span>
+    </header>
 
-    <!-- Medaglione NFC -->
-    <div class="medallion" aria-hidden="true">
-      <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
-        <circle class="med-ring" cx="140" cy="140" r="132"/>
-        <circle class="med-ring" cx="140" cy="140" r="108"/>
-        <circle class="med-ring" cx="140" cy="140" r="84"/>
+    <section class="identity">
+      {{portrait}}
+      <h1>{{name}}</h1>
+      <p class="role">{{role}}<br>{{org}}</p>
+    </section>
 
-        <circle class="med-ping" cx="140" cy="140" r="55" opacity="0">
-          <animate attributeName="r" from="55" to="132" dur="2.4s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0;0.55;0" dur="2.4s" repeatCount="indefinite"/>
-        </circle>
-        <circle class="med-ping" cx="140" cy="140" r="55" opacity="0">
-          <animate attributeName="r" from="55" to="132" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0;0.55;0" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
-        </circle>
-        <circle class="med-ping" cx="140" cy="140" r="55" opacity="0">
-          <animate attributeName="r" from="55" to="132" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0;0.55;0" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
-        </circle>
-
-        {{centerBlock}}
-      </svg>
-    </div>
-
-    <!-- Identità -->
-    <div class="identity">
-      <h1 class="name">{{name}}</h1>
-      <p class="role"><b>{{role}}</b> · {{org}}</p>
-    </div>
-
-    <!-- CTA -->
-    <a class="save-btn" href="card.vcf" download="{{slug}}.vcf">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
-        <polyline points="17 21 17 13 7 13 7 21"/>
-        <polyline points="7 3 7 8 15 8"/>
-      </svg>
+    <a class="save" href="card.vcf" download="{{slug}}.vcf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Salva contatto
     </a>
 
-    <!-- Dettagli contatto -->
-    <nav class="details">{{contactRows}}</nav>
+    <nav class="rows" aria-label="Contatti">
+{{contactRows}}
+    </nav>
 
-    <footer>{{brandName}} · NFC card</footer>
+    <footer><b>{{motto}}</b>{{org}}</footer>
   </main>
 </body>
 </html>

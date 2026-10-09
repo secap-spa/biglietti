@@ -7,12 +7,15 @@ Genera pagine statiche personali (`/cognome/`) con vCard scaricabile, a partire 
 ```
 .
 ├── data/
-│   ├── brand.json          # Configurazione brand (nome, sito, colore)
+│   ├── brand.json          # Azienda: nome, sito, frase in fondo alla pagina
 │   └── employees.json      # Elenco dei dipendenti
 ├── templates/
-│   ├── index.html          # Template pagina con placeholder {{...}}
+│   ├── index.html          # Pagina del biglietto, con segnaposto {{...}}
+│   ├── home.html           # Pagina principale, senza elenco delle persone
 │   └── card.vcf            # Template vCard con placeholder {{...}}
 ├── public/
+│   ├── brand/              # Loghi SECAP (dal design system di SECAP PRO)
+│   ├── fonts/              # Manrope, licenza OFL
 │   └── photos/             # (opzionale) foto profilo: <slug>.jpg
 ├── build.js                # Generatore statico
 ├── package.json
@@ -21,7 +24,7 @@ Genera pagine statiche personali (`/cognome/`) con vCard scaricabile, a partire 
 
 ## Quick start
 
-1. **Modifica `data/brand.json`** con nome, sito e colore di accento aziendale
+1. **Modifica `data/brand.json`** con nome, sito e frase dell'azienda
 2. **Compila `data/employees.json`** con i dipendenti. Campo `slug` opzionale (default: nome-cognome senza accenti)
 3. **(opzionale) Aggiungi foto** in `public/photos/<slug>.jpg` (JPEG, idealmente quadrate, max 50KB per la vCard)
 4. **Push su `main`**: la GitHub Action compila e pubblica su Pages automaticamente
@@ -77,6 +80,24 @@ https://<org>.github.io/<repo>/<slug>/
 ```
 
 App consigliata: NFC Tools (Android) → Write → Add URL/URI record → incolla l'URL → scrivi sul tag. Lo slash finale è importante.
+
+## Aspetto
+
+La pagina usa il linguaggio di SECAP PRO (variante A del confronto VC15, 9 ottobre 2026):
+fondo chiaro, Manrope, logo SECAP originale, il blu solo su «Salva contatto», tema
+scuro automatico. I colori nel `<style>` di `templates/index.html` vengono dai token
+del design system di SECAP PRO e si cambiano lì per primi.
+
+## Collegamento con SECAP PRO
+
+La rubrica di SECAP PRO è la fonte dei dati: le persone e i campi del biglietto si
+scrivono in Amministrazione › Persone e si pubblicano con «Pubblica biglietti», che
+scrive `data/biglietti.json` e `public/photos/`, poi fa commit e push. Quei file non
+si modificano a mano: `build.js` rifiuta un `biglietti.json` che non viene da SECAP
+PRO. Chi esce resta in `ritirati` e il suo indirizzo mostra una pagina neutra, così
+il tag NFC non porta a un errore. `data/employees.json` è il formato di prima e si
+legge solo se `biglietti.json` non c'è. Le decisioni sono in
+`docs/VCARD-E-RUBRICA.md` di SECAP PRO.
 
 ## Note privacy
 
